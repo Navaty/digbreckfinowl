@@ -20,6 +20,8 @@ class ServiceGroup(models.Model):
     class Meta:
         managed = False
         db_table = 'tservicegroup'
+        verbose_name = 'Группа услуги'
+        verbose_name_plural = 'Группы услуг'
 
     def __str__(self):
         return self.name
@@ -40,6 +42,8 @@ class Department(models.Model):
     class Meta:
         managed = False
         db_table = 'tdepartment'
+        verbose_name = 'Отдел'
+        verbose_name_plural = 'Отделы'
 
     def __str__(self):
         return self.name
@@ -67,6 +71,8 @@ class VendorApi(models.Model):
     class Meta:
         managed = False
         db_table = 'tvendorapi'
+        verbose_name = 'Внешний API'
+        verbose_name_plural = 'Внешние API'
 
     def __str__(self):
         return self.name
@@ -90,6 +96,8 @@ class ObjectType(models.Model):
     class Meta:
         managed = False
         db_table = 'tobjecttype'
+        verbose_name = 'Тип сущности'
+        verbose_name_plural = 'Типы сущностей'
 
 
 class RequestStatus(models.Model):
@@ -107,6 +115,8 @@ class RequestStatus(models.Model):
     class Meta:
         managed = False
         db_table = 'trequeststatus'
+        verbose_name = 'Статус заявления'
+        verbose_name_plural = 'Статусы заявлений'
 
     def __str__(self):
         return self.name
@@ -134,6 +144,8 @@ class PaymentApi(models.Model):
     class Meta:
         managed = False
         db_table = 'tpaymentapi'
+        verbose_name = 'Платежная система'
+        verbose_name_plural = 'Платежные системы'
 
     def __str__(self):
         return self.name
@@ -159,6 +171,8 @@ class RequestTemplate(models.Model):
     class Meta:
         managed = False
         db_table = 'trequesttemplate'
+        verbose_name = 'Шаблон заявления'
+        verbose_name_plural = 'Шаблоны заявлений'
 
     def __str__(self):
         return self.name
@@ -181,9 +195,12 @@ class RequestFieldType(models.Model):
     class Meta:
         managed = False
         db_table = 'trequestfieldtype'
+        verbose_name = 'Тип поля'
+        verbose_name_plural = 'Типы полей'
 
     def __str__(self):
         return self.name
+
 
 
 class RequestTemplateField(models.Model):
@@ -205,6 +222,8 @@ class RequestTemplateField(models.Model):
         managed = False
         db_table = 'trequesttemplatefield'
         unique_together = (('requesttemplate', 'field_index'),)
+        verbose_name = 'Поле шаблона'
+        verbose_name_plural = 'Поля шаблона'
 
     def __str__(self):
         return '%s, %s' % (self.requesttemplate.__str__(), self.name)
@@ -229,6 +248,8 @@ class DepartmentRule(models.Model):
     class Meta:
         managed = False
         db_table = 'tdepartmentrule'
+        verbose_name = 'Правила отдела'
+        verbose_name_plural = 'Правилы отдела'
 
     def __str__(self):
         return '%s => %s' % (self.requeststatus, self.objecttype)
